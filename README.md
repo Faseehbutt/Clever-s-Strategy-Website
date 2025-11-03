@@ -1,4 +1,4 @@
-# Clever Community - TradingView Indicators & Strategies
+# The Clever' Traders - TradingView Indicators & Strategies
 
 A modern, minimalistic, high-end animated website to showcase TradingView indicators and strategies.
 

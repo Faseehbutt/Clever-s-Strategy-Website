@@ -23,18 +23,18 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="relative py-12 px-4 border-t border-dark-border">
+    <footer className="relative py-16 px-4 border-t border-dark-border">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <motion.div
             className="text-gray-400"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            viewport={{ once: false, margin: '-100px' }}
+            viewport={{ once: true, margin: '100px' }}
             transition={{ duration: 0.8 }}
           >
             <p className="text-sm animate-flicker neon-gold inline-block">
-              © {currentYear} Clever Community. All rights reserved.
+              © {currentYear} The Clever Traders. All rights reserved.
             </p>
           </motion.div>
           <div className="flex gap-6">
@@ -46,15 +46,19 @@ const Footer = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 glass rounded-full flex items-center justify-center border border-gray-600 hover:border-neon-teal hover:glow-teal transition-all group"
+                  className="w-12 h-12 glass rounded-full flex items-center justify-center border border-gray-600 group"
                   whileHover={{ scale: 1.1, rotate: 5 }}
                   whileTap={{ scale: 0.9 }}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, margin: '-50px' }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true, margin: '50px' }}
+                  transition={{ 
+                    type: 'spring',
+                    stiffness: 400,
+                    damping: 17
+                  }}
                 >
-                  <IconComponent className="text-xl text-gray-400 group-hover:text-neon-teal transition-colors" />
+                  <IconComponent className="text-xl text-gray-400 group-hover:text-neon-teal transition-colors duration-300 ease-in-out" />
                 </motion.a>
               )
             })}

@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Clever Community - Smart Trading Starts Here',
+  title: "The Clever' Traders - Smart Trading Starts Here",
   description: 'Custom-built TradingView indicators and strategies for XAUUSD and more',
 }
 

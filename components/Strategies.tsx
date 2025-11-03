@@ -16,6 +16,15 @@ interface Strategy {
 
 const strategies: Strategy[] = [
   {
+    id: 7,
+    name: '💻 RSI Dual-Band Reversal Strategy (Hacker Mode)',
+    description: 'Identifies potential trend reversals when price momentum reaches extreme overbought or oversold levels — then enters trades expecting the price to revert.',
+    category: ['Mean Reversion', 'RSI', 'Reversal'],
+    backtestWinRate: 45.45,
+    backtestProfit: '>70%',
+    link: 'https://www.tradingview.com/script/mkUeuwKA-RSI-Dual-Band-Reversal-Strategy-Hacker-Mode/',
+  },
+  {
     id: 1,
     name: 'Golden Scalper',
     description: 'High-frequency scalping strategy for XAUUSD with tight spreads',
@@ -71,7 +80,7 @@ const strategies: Strategy[] = [
   },
 ]
 
-const filters = ['All', 'Scalping', 'Swing', 'EMA', 'Breakout', 'Momentum', 'Trend', 'XAUUSD']
+const filters = ['All', 'Scalping', 'Swing', 'EMA', 'Breakout', 'Momentum', 'Trend', 'XAUUSD', 'Mean Reversion', 'RSI', 'Reversal']
 
 const Strategies = () => {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -82,56 +91,86 @@ const Strategies = () => {
       : strategies.filter((strategy) => strategy.category.includes(activeFilter))
 
   return (
-    <section id="strategies" className="relative py-20 px-4">
+    <section id="strategies" className="relative py-32 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.h2
-          className="text-5xl md:text-6xl font-bold text-center mb-4 neon-gold"
+          className="text-5xl md:text-6xl font-bold text-center mb-6 neon-gold"
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ duration: 0.8 }}
         >
           Strategies
         </motion.h2>
         <motion.p
-          className="text-xl text-gray-400 text-center mb-12"
+          className="text-xl text-gray-400 text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
+          viewport={{ once: true, margin: '100px' }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           Backtested trading strategies ready for live markets
         </motion.p>
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        <div className="flex flex-wrap justify-center gap-4 mb-16">
           {filters.map((filter) => (
             <motion.button
               key={filter}
               onClick={() => setActiveFilter(filter)}
-              className={`px-6 py-2 rounded-full font-semibold transition-all ${
+              className={`px-6 py-2 rounded-full font-semibold ${
                 activeFilter === filter
                   ? 'bg-neon-gold text-dark-bg glow-gold'
                   : 'glass border border-gray-600 text-gray-300 hover:border-neon-teal hover:text-neon-teal'
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               {filter}
             </motion.button>
           ))}
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredStrategies.map((strategy, index) => (
             <motion.div
               key={strategy.id}
-              className="glass rounded-xl p-6 hover:glow-gold transition-all cursor-pointer group"
+              className="glass rounded-xl p-6 cursor-pointer group"
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: '-50px' }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ scale: 1.05, y: -10 }}
+              viewport={{ once: true, margin: '50px' }}
+              whileHover={{ 
+                scale: 1.05, 
+                y: -10,
+                transition: {
+                  type: 'spring',
+                  stiffness: 400,
+                  damping: 25,
+                  mass: 0.5
+                }
+              }}
+              transition={{ 
+                duration: 0.15,
+                ease: 'easeOut',
+                scale: {
+                  type: 'spring',
+                  stiffness: 400,
+                  damping: 25,
+                  mass: 0.5
+                },
+                y: {
+                  type: 'spring',
+                  stiffness: 400,
+                  damping: 25,
+                  mass: 0.5
+                },
+                opacity: {
+                  duration: 0.6,
+                  delay: index * 0.1,
+                  ease: 'easeOut'
+                }
+              }}
             >
               <div className="flex justify-between items-start mb-3">
-                <h3 className="text-2xl font-bold text-neon-teal group-hover:text-neon-gold transition-colors">
+                <h3 className="text-2xl font-bold text-neon-teal group-hover:text-neon-gold transition-colors duration-300 ease-in-out">
                   {strategy.name}
                 </h3>
                 <div className="text-right">
@@ -160,7 +199,7 @@ const Strategies = () => {
                 href={strategy.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-neon-gold hover:text-neon-teal transition-colors"
+                className="inline-flex items-center gap-2 text-neon-gold hover:text-neon-teal transition-colors duration-300 ease-in-out"
               >
                 View on TradingView
                 <FiExternalLink />

@@ -13,7 +13,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Clever Community
+          The Clever Traders
         </motion.h1>
         <motion.p
           className="text-2xl md:text-3xl text-gray-300 mb-4"
@@ -24,7 +24,7 @@ const Hero = () => {
           Smart Trading Starts Here
         </motion.p>
         <motion.p
-          className="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto"
+          className="text-lg md:text-xl text-gray-400 mb-16 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -39,18 +39,30 @@ const Hero = () => {
         >
           <Link href="#indicators">
             <motion.button
-              className="px-8 py-4 bg-neon-gold text-dark-bg font-semibold rounded-lg glow-gold hover:scale-105 transition-transform"
+              className="px-8 py-4 bg-neon-gold text-dark-bg font-semibold rounded-lg glow-gold"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               View Indicators
             </motion.button>
           </Link>
           <Link href="#strategies">
             <motion.button
-              className="px-8 py-4 glass border-2 border-neon-teal text-neon-teal font-semibold rounded-lg glow-teal hover:scale-105 transition-transform"
+              className="px-8 py-4 bg-neon-teal text-dark-bg font-semibold rounded-lg glow-teal"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
+              View Strategies
+            </motion.button>
+          </Link>
+          <Link href="#strategies">
+            <motion.button
+              className="px-8 py-4 glass border-2 border-neon-gold text-neon-gold font-semibold rounded-lg glow-gold"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: 'spring', stiffness: 400, damping: 17 }}
             >
               Join Live Trading
             </motion.button>
