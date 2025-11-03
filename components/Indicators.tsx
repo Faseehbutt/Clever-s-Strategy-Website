@@ -83,6 +83,9 @@ const Indicators = () => {
             <motion.div
               key={indicator.id}
               className="glass rounded-xl p-6 cursor-pointer group"
+              style={{ 
+                background: 'rgba(26, 26, 26, 0.4)'
+              }}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '50px' }}

@@ -42,12 +42,11 @@ body {
   background: linear-gradient(180deg, #FFA500, #00CED1);
 }
 
-/* Glass morphism utility */
+/* Glass morphism utility - transparent without blur */
 .glass {
-  background: rgba(26, 26, 26, 0.7);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(26, 26, 26, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
 }
 
 /* Neon glow effects */
